@@ -42,6 +42,7 @@
 #define BITMASK_XY_AXES_OPMODE (0x60)
 #define BITMASK_IEN (0x01)
 
+//Get/Set apis to read/write from slave device
 #define GET_FS_CONFIG(_X_) ((_X_ & BITMASK_FS_CONFIG) >> 5)
 
 #define GET_FAST_ODR(_X_) ((_X_ & BITMASK_FAST_ODR) >> 1)
@@ -52,7 +53,7 @@
 #define SET_ODR(_BUFFER_, _ODR_) ((_ODR_ << 2) | _BUFFER_)
 #define SET_XY_AXES_OPMODE(_BUFFER_, _OPMODE_) ((_OPMODE_ << 5) | _BUFFER_)
 
-#define GET_IEN_STATUS(_X_) (_X_ & BITMASK_IEN)
-#define SET_IEN_STATUS(_X_) (_X_ | BITMASK_IEN)
+#define GET_IEN_STATUS(_BUFFER_) (_BUFFER_ & BITMASK_IEN)
+#define SET_IEN_STATUS(_BUFFER_,_IEN_STATUS_) (_BUFFER_ | _IEN_STATUS_)
 
 #endif
