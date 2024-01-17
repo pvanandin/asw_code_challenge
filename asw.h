@@ -36,6 +36,7 @@
 #define REG_ADDRESS_OUT_Z_L OUT_Z_L
 #define REG_ADDRESS_OUT_Z_H OUT_Z_H
 
+//Bit mask definitions
 #define BITMASK_FS_CONFIG (0x60)
 #define BITMASK_FAST_ODR (0x02)
 #define BITMASK_ODR (0x1C)
@@ -55,5 +56,13 @@
 
 #define GET_IEN_STATUS(_BUFFER_) (_BUFFER_ & BITMASK_IEN)
 #define SET_IEN_STATUS(_BUFFER_,_IEN_STATUS_) (_BUFFER_ | _IEN_STATUS_)
+
+//API prototypes
+status_t getFullScaleConfig(uint8_t *p_fsconfig);
+status_t getOutputDataRate(uint8_t *p_xyaxes_opmode, uint8_t *p_odr_config, uint8_t *p_fastodr_en_status);
+status_t setOutputDataRate(uint8_t xyaxes_opmode, uint8_t odr_config, uint8_t fastodr_en_status);
+status_t enableInterruptPin(void);
+status_t disableInterruptPin(void);
+status_t readAxisOutputData(char axis_index, uint16_t *p_axis_data);
 
 #endif
