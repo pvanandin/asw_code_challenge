@@ -45,4 +45,6 @@ This is not a closed book assessment.
 If you have time, answer the following questions:
 - What changes you would make to this interfaces for use in an RTOS
 environment?
+  All these apis shall be abstracted in a HAL to make it platform independent and the actual device drver shall be moved to kernel space. Main application shall insmod this driver as .ko file.
 - How might the I2C API be improved
+  i2c read and write stub apis shall be modified to take/store some the (default) values in a global structure variable to simulate the use case defined in the coding challenge. 
